@@ -22,7 +22,7 @@ module.exports = {
       const objectsToKeepCount = 4;
 
       const orderedObjects = _.orderBy(
-        files,
+        _.filter(files, (f) => f.contentType != 'text/plain'),
         (file) => {
           const timestamp = file.name.match(/(serverless)\/(.+)\/(.+)\/(\d+)-(.+)\/(.+\.zip)/)[4];
           return timestamp;
